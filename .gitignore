@@ -1,3 +1,4 @@
 dev_env
 *.pyc
 node_modules
+.vs-code
