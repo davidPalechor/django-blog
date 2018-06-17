@@ -1,0 +1,19 @@
+.nav {
+    background: #333;
+    margin-bottom: 15px;
+}
+
+.nav__link {
+    padding: 15px 20px;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+.nav__link:hover {
+    color: #333;
+    background: white;
+}
