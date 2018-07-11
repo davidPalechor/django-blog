@@ -12,8 +12,9 @@
 <body>
     {% include 'layout/header.html' %}
     <div class="container">
-        {% block content %}{% endblock content %}
+        {% block content %}{% endblock %}
     </div>
 </body>
 <script src="{% static 'node_modules/jquery/dist/jquery.min.js'%}"></script>
+{% block js %}{% endblock %}
 </html>
