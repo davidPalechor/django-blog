@@ -1,0 +1,15 @@
+.form-group {
+    padding-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+label.required::before {
+    content:'*'
+}
