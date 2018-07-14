@@ -18,14 +18,22 @@
         <div class="form-group">
             <label class="required" for="id_username">{{ form.username.label }}</label>
             {% render_field form.username %}
+            {% render_field form.errors.username %}
         </div>
         <div class="form-group">
             <label class="required" for="id_email">{{ form.email.label }}</label>
             {% render_field form.email %}
+            {% render_field form.errors.email %}
         </div>
         <div class="form-group">
             <label class="required" for="id_password">{{ form.password.label }}</label>
-            {% render_field form.password %}
+            {% render_field form.password type="password" %}
+            {% render_field form.errors.password %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="id_confirm_password">{{ form.confirm_password.label }}</label>
+            {% render_field form.confirm_password %}
+            {% render_field form.errors.confirm_password %}
         </div>
         <input type="submit" value="Submit">
     </form>
