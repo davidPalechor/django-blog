@@ -13,5 +13,5 @@ Web app for restaurant-based business.
 * Complete all blank fields.
 * Go to `localhost:8000/admin` and you should be able to login.
 
-#Running Tests
+# Running Tests
 `docker exec -it django-restaurant_web_1 python manage.py test`
