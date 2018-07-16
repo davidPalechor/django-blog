@@ -18,7 +18,9 @@ h1 {
     font-size: 2rem;
 }
 
-
+button {
+    display: block;
+}
 
 @media (min-width: 768px){
     html, body {

@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <h1>
+    {% if user.first_name %}
+        Welcome {{ user.first_name }}
+    {% else %}
+        Welcome {{ user.username }}
+    {% endif %}</h1>
+</section>
+{% endblock %}

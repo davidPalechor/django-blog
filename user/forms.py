@@ -24,5 +24,4 @@ class SignupForm(forms.ModelForm):
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
         if password != confirm_password:
-            self.add_error('confirm_password', "Passwords don't match")
-
+            self.add_error('confirm_password', 'Passwords do not match')

@@ -5,7 +5,7 @@
 
 {% block content %}
 <section class="signup">
-    <form method="POST">
+    <form class="js-signup-form" method="POST">
         {% csrf_token %}
         <div class="form-group">
             <label class="required" for="id_first name">{{ form.first_name.label }}</label>
@@ -35,13 +35,14 @@
             {% render_field form.confirm_password %}
             {% render_field form.errors.confirm_password %}
         </div>
-        <input type="submit" value="Submit">
+        <button type="submit">Submit</button>
     </form>
 </section>
 {% endblock content %}
 
 {% block js %}
-<script></script>
+<script src="{% static 'node_modules/jquery_validation/dist/jquery.validate.min.js'%}"></script>
+<script src="{% static 'js/signup.js' %}"></script>
 {% endblock %}
 
 
