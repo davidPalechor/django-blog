@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from .models import PersonUser
 
 
 class SignupForm(forms.ModelForm):
@@ -9,12 +9,12 @@ class SignupForm(forms.ModelForm):
     )
 
     class Meta:
-        model = User
+        model = PersonUser
         fields = [
+            'id_type',
+            'id',
             'first_name',
             'last_name',
-            'username',
-            'email',
             'password',
             'confirm_password',
         ]

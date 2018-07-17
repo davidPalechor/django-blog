@@ -1,3 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import PersonUser
+
+
+@admin.register(PersonUser)
+class PersonUserAdmin(admin.ModelAdmin):
+    empty_value_display = '-empty-'
+    fields = [
+        'id',
+        'first_name',
+        'last_name',
+    ]

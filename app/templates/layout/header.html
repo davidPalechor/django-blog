@@ -6,6 +6,7 @@
         <a href="{% url 'user:signup' %}" class="nav__link">sign up</a>
         <a href="{% url 'user:login' %}" class="nav__link">Login</a>
     {% else %}
+        <a href="{% url 'dashboard' %}" class="nav__link">dashboard</a>
         <a href="{% url 'user:logout' %}" class="nav__link">logout</a>
     {% endif%}
     </div>
