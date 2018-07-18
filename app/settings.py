@@ -45,7 +45,8 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'widget_tweaks'
+    'compressor',
+    'widget_tweaks',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
