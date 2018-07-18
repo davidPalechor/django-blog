@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
-
+from django.contrib.auth.models import PermissionsMixin
 from .managers import UserManager
 
 
-class PersonUser(AbstractBaseUser):
+class PersonUser(AbstractBaseUser, PermissionsMixin):
     CC = 'cc'
     TI = 'ti'
     CE = 'ce'
@@ -58,22 +58,8 @@ class PersonUser(AbstractBaseUser):
     )
     is_staff = models.BooleanField(
         default=True,
-        verbose_name='Is Staff'
-    )
-    is_superuser = models.BooleanField(
-        default=False,
-        verbose_name='Is Super User'
+        verbose_name='Is Staff',
     )
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
-
-    def has_perm(self, perm, obj=None):
-        if self.is_superuser:
-            return True
-        return False
-
-    def has_module_perms(self, app_label):
-        if self.is_superuser:
-            return True
-        return True

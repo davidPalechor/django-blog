@@ -6,10 +6,10 @@ class UserManager(BaseUserManager):
 
     def _create_user(self, id, password, **extra_fields):
         """
-        Creates and saves a User with the given email and password.
+        Creates and saves a User with the given ID number and password.
         """
         if not id:
-            raise ValueError('The given email must be set')
+            raise ValueError('The given ID number must be set')
         user = self.model(id=id, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
