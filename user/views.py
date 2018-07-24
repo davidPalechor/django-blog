@@ -16,6 +16,13 @@ class UserCreate(CreateView):
     success_url = reverse_lazy('home')
     template_name = 'signup.html'
 
+    def form_valid(self, form):
+        user = form['user'].save()
+        student_info = form['student_info'].save(commit=False)
+        student_info.user = user
+        student_info.save()
+        return super().form_valid(form)
+
 
 class UserLoginView(LoginView):
     template_name = 'login.html'

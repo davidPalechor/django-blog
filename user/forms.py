@@ -1,10 +1,13 @@
+from betterforms.multiform import MultiModelForm
+
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .models import PersonUser
+from .models import StudentUser
 
 
-class SignupForm(forms.ModelForm):
+class UserCreationForm(forms.ModelForm):
     password = forms.CharField(
         label='Password',
         widget=forms.PasswordInput(),
@@ -16,14 +19,15 @@ class SignupForm(forms.ModelForm):
 
     class Meta:
         model = PersonUser
-        fields = [
+        fields = (
             'id_type',
             'id',
             'first_name',
             'last_name',
+            'address',
             'password',
             'confirm_password',
-        ]
+        )
 
     def clean(self):
         cleaned_data = super().clean()
@@ -38,6 +42,26 @@ class SignupForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class StudentInfoForm(forms.ModelForm):
+    class Meta:
+        model = StudentUser
+        fields = (
+            'career',
+            'grade_point_average',
+            'num_enrollments',
+            'state',
+            'code',
+            'social_stratum',
+        )
+
+
+class SignupForm(MultiModelForm):
+    form_classes = {
+        'user': UserCreationForm,
+        'student_info': StudentInfoForm,
+    }
 
 
 class UserChangeForm(forms.ModelForm):

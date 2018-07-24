@@ -46,7 +46,6 @@ class PersonUser(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(
         max_length=30,
         verbose_name='Address',
-
     )
     telephone = models.IntegerField(
         null=True,
@@ -63,3 +62,47 @@ class PersonUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
+
+
+class StudentUser(models.Model):
+    INACTIVE = 'inactive'
+    ACTIVE = 'active'
+
+    STATE_CHOICES = (
+        (INACTIVE, 'Inactive'),
+        (ACTIVE, 'Active'),
+    )
+
+    user = models.OneToOneField(
+        to=PersonUser,
+        verbose_name='User',
+        primary_key=True,
+        on_delete=models.CASCADE,
+    )
+    career = models.CharField(
+        max_length=15,
+        verbose_name='Curricular Project'
+    )
+    grade_point_average = models.DecimalField(
+        max_digits=4,
+        decimal_places=2,
+        verbose_name='Grade Point Average',
+    )
+    num_enrollments = models.SmallIntegerField(
+        verbose_name='Number of Enrollments',
+    )
+    state = models.CharField(
+        choices=STATE_CHOICES,
+        max_length=8,
+        verbose_name='Student State',
+    )
+    code = models.IntegerField(
+        verbose_name="Student Code",
+        unique=True
+    )
+    social_stratum = models.SmallIntegerField(
+        verbose_name="Social Straum",
+    )
+
+    def __str__(self):
+        return str(self.user)

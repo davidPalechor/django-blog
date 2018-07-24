@@ -45,6 +45,7 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'betterforms',
     'compressor',
     'widget_tweaks',
 ]
@@ -136,5 +137,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Login and logout redirect url
+
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Session variables
+
+SESSION_COOKIE_AGE = 5 * 60
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = True

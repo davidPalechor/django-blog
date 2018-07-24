@@ -5,6 +5,8 @@ from django.contrib.auth.forms import AdminPasswordChangeForm
 from .forms import UserChangeForm
 from .forms import SignupForm
 from .models import PersonUser
+from .models import StudentUser
+
 
 @admin.register(PersonUser)
 class PersonUserAdmin(UserAdmin):
@@ -34,12 +36,13 @@ class PersonUserAdmin(UserAdmin):
     limited_fieldsets = (
         (None, {'fields': ('id')})
     )
-    list_display = [
+    list_display = (
         'id',
         'first_name',
         'last_name',
         'is_active',
-    ]
+        'is_superuser',
+    )
     ordering = (
         'id',
     )
@@ -48,4 +51,13 @@ class PersonUserAdmin(UserAdmin):
     )
     readonly_fields = (
         'last_login',
+    )
+
+
+@admin.register(StudentUser)
+class StudentUserAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'code',
+        'career',
     )

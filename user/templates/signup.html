@@ -8,32 +8,67 @@
     <form class="js-signup-form" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <label for="id_id_type">{{form.id_type.label}}</label>
-            {% render_field form.id_type %}
-            {% render_field form.errors.id_type %}
+            <label for="user-id_type">{{form.user.id_type.label}}</label>
+            {% render_field form.user.id_type %}
+            {% render_field form.user.errors.id_type %}
+        </div>
+            <div class="form-group">
+            <label class="required" for="user-id_id">{{ form.user.id.label }}</label>
+            {% render_field form.user.id %}
+            {% render_field form.user.errors.id %}
         </div>
         <div class="form-group">
-            <label class="required" for="id_id">{{ form.id.label }}</label>
-            {% render_field form.id %}
-            {% render_field form.errors.id %}
+            <label for="student_info-id_code">{{ form.student_info.code.label }}</label>
+            {% render_field form.student_info.code %}
+            {% render_field form.student_info.errors.code %}
         </div>
         <div class="form-group">
-            <label class="required" for="id_first name">{{ form.first_name.label }}</label>
-            {% render_field form.first_name %}
+            <label class="required" for="user-id_first name">{{ form.user.first_name.label }}</label>
+            {% render_field form.user.first_name %}
         </div>
         <div class="form-group">
-            <label class="required" for="id_last_name">{{ form.last_name.label }}</label>
-            {% render_field form.last_name %}
+            <label class="required" for="user-id_last_name">{{ form.user.last_name.label }}</label>
+            {% render_field form.user.last_name %}
         </div>
         <div class="form-group">
-            <label class="required" for="id_password">{{ form.password.label }}</label>
-            {% render_field form.password type="password" %}
-            {% render_field form.errors.password %}
+            <label class="required" for="user-id_address">{{ form.user.address.label }}</label>
+            {% render_field form.user.address %}
+            {% render_field form.user.errors.address %}
         </div>
         <div class="form-group">
-            <label class="required" for="id_confirm_password">{{ form.confirm_password.label }}</label>
-            {% render_field form.confirm_password %}
-            {% render_field form.errors.confirm_password %}
+            <label for="student_info-id_social_stratum">{{ form.student_info.social_stratum.label }}</label>
+            {% render_field form.student_info.social_stratum %}
+            {% render_field form.student_info.error.social_stratum %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="student_info-id_career">{{ form.student_info.career.label }}</label>
+            {% render_field form.student_info.career %}
+            {% render_field form.student_info.errors.career %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="student_info-id_grade_point_average">{{ form.student_info.grade_point_average.label }}</label>
+            {% render_field form.student_info.grade_point_average %}
+            {% render_field form.student_info.errors.grade_point_average %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="student_info-id_num_enrollments">{{ form.student_info.num_enrollments.label }}</label>
+            {% render_field form.student_info.num_enrollments %}
+            {% render_field form.student_info.errors.num_enrollments %}
+        </div>
+        <div class="form-group">
+            <label for="student_info-id_state">{{ form.student_info.state.label }}</label>
+            {% render_field form.student_info.state %}
+            {% render_field form.student_info.errors.state %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="user-id_password">{{ form.user.password.label }}</label>
+            {% render_field form.user.password type="password" %}
+            {% render_field form.user.errors.password %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="user-id_confirm_password">{{ form.user.confirm_password.label }}</label>
+            {% render_field form.user.confirm_password %}
+            {% render_field form.user.errors.confirm_password %}
         </div>
         <button type="submit">Submit</button>
     </form>
