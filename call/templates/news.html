@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}News{% endblock %}
+
+
+{% block content %}
+<section class="news">
+    <h1>Call for subsidies</h1>
+    {% for call in object_list %}
+    <div>
+        <p class="news__title">{{ call }}</p>
+        <div class="news__content">
+            Start date: {{ call.start_date }}
+            End date: {{ call.end_date }}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
+

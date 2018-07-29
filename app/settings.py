@@ -42,6 +42,7 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'app',
     'user',
+    'call',
 ]
 
 THIRD_PARTY_APPS = [
@@ -122,7 +123,7 @@ AUTH_USER_MODEL = 'user.PersonUser'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Atikokan'
 
 USE_I18N = True
 

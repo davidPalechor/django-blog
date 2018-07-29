@@ -17,4 +17,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
     path('account/', include('user.urls', namespace='user')),
+    path('calls/', include('call.urls', namespace='call')),
 ]
