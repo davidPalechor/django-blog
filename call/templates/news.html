@@ -10,8 +10,8 @@
     <div>
         <p class="news__title">{{ call }}</p>
         <div class="news__content">
-            Start date: {{ call.start_date }}
-            End date: {{ call.end_date }}
+            From {{ call.start_date }} to {{ call.end_date }}
+            <span>posted: {{ call.created_at }}</span>
         </div>
     </div>
     {% endfor %}

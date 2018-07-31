@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+{% load static widget_tweaks %}
+
+{% block title %}Create Call for Subsidy{% endblock %}
+
+{% block content %}
+<section class="create-call">
+{% if perms.call.can_add %}
+    <h1>Create New Call for Subsidy</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <label class="required" for="id_year">{{ form.year.label }}</label>
+            {% render_field form.year %}
+        </div>
+        <div class="form-group">
+            <label class="required" for="id_period">{{ form.period.label }}</label>
+            {% render_field form.period %}
+        </div>
+        <div class="form-group">
+            <label for="id_start_date">{{ form.start_date.label }}</label>
+            {% render_field form.start_date type="date" %}
+        </div>
+        <div class="form-group">
+            <label for="id_end_date">{{ form.end_date.label }}</label>
+            {% render_field form.end_date type="date" %}
+            {% render_field form.errors.end_date %}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+{% else %}
+    <p>You don't have permission to see this page, please <a href="{% url 'user:logout' %}">login</a> as an user with valid permissions</p>
+{% endif %}
+
+</section>
+{% endblock %}
+

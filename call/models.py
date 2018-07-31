@@ -22,14 +22,14 @@ class Call(models.Model):
         verbose_name='Period',
     )
     start_date = models.DateField(
-        default=timezone.now(),
+        default=timezone.now,
         verbose_name='Start Date',
     )
     end_date = models.DateField(
         verbose_name='End Date',
     )
     created_at = models.DateTimeField(
-        default=timezone.now(),
+        default=timezone.now,
         verbose_name='Created At',
     )
     updated_at = models.DateTimeField(
@@ -39,3 +39,13 @@ class Call(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.year, self.period)
+
+
+class Conditon(models.Model):
+    name = models.CharField(
+        max_length=30,
+        verbose_name='Name',
+    )
+
+    def __str__(self):
+        return self.name

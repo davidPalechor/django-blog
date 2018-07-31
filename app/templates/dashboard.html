@@ -4,11 +4,15 @@
 
 {% block content %}
 <section class="dashboard">
-    <h1>
-    {% if user.first_name %}
-        Welcome {{ user.first_name }}
-    {% else %}
-        Welcome {{ user.username }}
-    {% endif %}</h1>
+{% if user.first_name %}
+    <h1>Welcome {{ user.first_name }}</h1>
+{% else %}
+    <h1>Welcome {{ user.username }}</h1>
+{% endif %}
+
+{% if perms.call.can_add %}
+    <a href="{% url 'call:create_call' %}">Create Call</a>
+{% endif %}
+
 </section>
 {% endblock %}

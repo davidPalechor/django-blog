@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import Call
+from . import models
 
 
-@admin.register(Call)
+@admin.register(models.Call)
 class CallAdmin(admin.ModelAdmin):
     list_display = (
         'year',
@@ -25,3 +25,13 @@ class CallAdmin(admin.ModelAdmin):
         'year',
         'start_date',
     )
+
+
+@admin.register(models.Conditon)
+class ConditionAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'name',
+    )
+    ordering = ('id',)
+    search_fields = ('name',)
