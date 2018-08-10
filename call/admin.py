@@ -35,3 +35,22 @@ class ConditionAdmin(admin.ModelAdmin):
     )
     ordering = ('id',)
     search_fields = ('name',)
+
+
+@admin.register(models.ApplicationCondition)
+class ApplicationConditionAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (None, {
+            'fields': (
+                'attachment',
+                'condition_value',
+                'condition_score',
+                'condition_status',
+            )
+        }),
+        ('Application', {
+            'fields': (
+                'application',
+            )
+        })
+    )

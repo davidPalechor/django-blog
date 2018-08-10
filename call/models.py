@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils import timezone
 
+from user.models import PersonUser
+from user.models import StudentUser
+
 
 class Call(models.Model):
     PERIOD_CHOICES = (
@@ -49,3 +52,83 @@ class Conditon(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Application(models.Model):
+    STATUS_CHOICES = (
+        ('Processing', 'processing'),
+        ('Approved', 'approved'),
+        ('Canceled', 'canceled'),
+        ('Verified', 'verified'),
+        ('Insufficient', 'insufficient'),
+    )
+
+    consecutive = models.AutoField(
+        primary_key=True,
+        verbose_name='Consecutive',
+    )
+    status = models.CharField(
+        choices=STATUS_CHOICES,
+        max_length=12,
+        verbose_name='Status',
+    )
+    received_at = models.DateField(
+        default=timezone.now,
+        verbose_name="Received at",
+    )
+    score = models.SmallIntegerField(
+        null=True,
+        verbose_name="Score",
+    )
+    call = models.ForeignKey(
+        to=Call,
+        on_delete=models.CASCADE,
+        related_name='call',
+        verbose_name='Call',
+    )
+    student = models.ForeignKey(
+        to=StudentUser,
+        on_delete=models.CASCADE,
+        related_name='student',
+        verbose_name='Student'
+    )
+    admin = models.ForeignKey(
+        to=PersonUser,
+        on_delete=models.CASCADE,
+        related_name='admin',
+        verbose_name='Admin',
+        null=True,
+    )
+
+
+class ApplicationCondition(models.Model):
+    attachment = models.FileField(
+        max_length=50,
+        upload_to='application/',
+        verbose_name='Attachment',
+    )
+    condition_value = models.CharField(
+        max_length=10,
+        verbose_name='Condition Value'
+    )
+    condition_score = models.PositiveSmallIntegerField(
+        verbose_name='Condition Score',
+        null=True,
+    )
+    condition_status = models.CharField(
+        max_length=10,
+        null=True,
+        verbose_name='Condition Status',
+    )
+    application = models.ForeignKey(
+        to=Application,
+        on_delete=models.CASCADE,
+        related_name='application',
+        verbose_name='Application',
+    )
+    condition = models.ForeignKey(
+        to=Conditon,
+        on_delete=models.CASCADE,
+        related_name='condition',
+        verbose_name='Condition',
+    )
