@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  yarn:
+    image: node:alpine
+    command: yarn install -g
+    volumes:
+      - .:/code
+    working_dir: /code
   db:
     image: postgres
   web:
@@ -12,3 +18,4 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - yarn
