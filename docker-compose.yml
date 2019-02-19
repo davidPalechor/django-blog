@@ -8,7 +8,12 @@ services:
       - .:/code
     working_dir: /code
   db:
-    image: postgres
+    image: postgres:11.2
+  migrate:
+    image: django-restaurant_web
+    command: python3 manage.py migrate
+    depends_on:
+      - db
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
@@ -19,3 +24,4 @@ services:
     depends_on:
       - db
       - yarn
+      - migrate

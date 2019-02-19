@@ -1,0 +1,1 @@
+pg_dump: [archiver (db)] connection to database "postgres" failed: FATAL:  role "root" does not exist
