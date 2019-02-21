@@ -1199,9 +1199,9 @@ has-values@^1.0.0:
     kind-of "^4.0.0"
 
 homedir-polyfill@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.2.tgz#0e59a09fcfcb387638f0832f5c27eb22da510fa7"
-  integrity sha512-A0cau1b1F7kmsKG3vHLi7DQ2d13k/BefUGRKRa8+sv7f1Vs+N28f0uv9nnWo3CNH50VsVdLcSKdxtztwn6K3Vg==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
+  integrity sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==
   dependencies:
     parse-passwd "^1.0.0"
 
@@ -1489,6 +1489,7 @@ jquery-validation@^1.19.0:
 "jquery@^1.7 || ^2.0 || ^3.1", jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 js-base64@^2.1.8:
   version "2.5.1"
