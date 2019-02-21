@@ -1,5 +1,5 @@
 var gulp = require('gulp')
-var sass = require('sass')
+var sass = require('gulp-sass')
 
 gulp.task('sass', function(){
     return gulp.src('app/static/sass/style.sass')
@@ -7,4 +7,4 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('app/static/css'))
 })
 
-gulp.task('default', ["sass"])
+gulp.task('default', gulp.parallel("sass"))
