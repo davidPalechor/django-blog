@@ -2,11 +2,8 @@ version: '3'
 
 services:
   yarn:
-    image: node:alpine
+    image: django-restaurant_web
     command: yarn install -g
-    volumes:
-      - .:/code
-    working_dir: /code
   db:
     image: postgres:11.2
   migrate:
